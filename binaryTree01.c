@@ -51,6 +51,16 @@ int numeroNos(PONT raiz){
     +1
     +numeroNos(raiz->dir);
 }
+//imprimir árvore
+void exibirArvore(PONT raiz) {
+  if(raiz!=NULL){    
+    printf("%i",raiz->chave);
+    printf("(");
+    exibirArvore(raiz->esq);
+    exibirArvore(raiz->dir);
+    printf(")");
+  }
+}
 
 int main() {
   PONT r = inicializa();
@@ -66,6 +76,7 @@ int main() {
   r = adiciona(r,no5);
   PONT p = contem(12,r);
   printf("%d\n", numeroNos(r));
+  exibirArvore(r);
 
   return 0;
 }
